@@ -1,0 +1,62 @@
+:root {
+	--w: hsl(0deg 0% 100%);
+	--r: hsl(6deg 100% 69%);
+	--p: hsl(265deg 93% 65%);
+	--g: hsl(166deg 92% 58%);
+	--y: hsl(47deg 100% 63%);
+}
+* {
+	user-select: none;
+}
+@mixin icon($c, $p, $z) {
+	background: $c;
+	padding: {
+		left: $p;
+		right: $p;
+		top: $z;
+		bottom: $z;
+	}
+	border-radius: 100%;
+	box-shadow: 0 0 20px 0.3rem $c;
+	border: 2px solid rgba($c, 0.5);
+}
+body {
+	background: #262626;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	margin: 0;
+	height: 100vh;
+	@media screen and (max-width: 545px) {
+		overflow-y: visible;
+	}
+}
+.canvas {
+	margin: auto;
+	z-index: 2;
+	display: flex;
+	gap: 70px;
+	font-size: 2.5rem;
+	color: var(--w);
+	align-items: center;
+	justify-content: center;
+	.star {
+		@include icon(var(--r), 15px, 15px);
+	}
+	.bookmark {
+		@include icon(var(--p), 22px, 14.5px);
+	}
+	.calendar {
+		i {
+			transform: rotate(-90deg);
+		}
+		@include icon(var(--g), 20px, 15px);
+	}
+	.user {
+		@include icon(var(--y), 20px, 15px);
+	}
+	@media screen and (max-width: 545px) {
+		flex-direction: column;
+	}
+}
